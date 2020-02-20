@@ -1,3 +1,8 @@
+---
+title: RTBF CSS class generator
+sidebarDepth: 2
+---
+
 # RTBF CSS class generator
 
 In one sentence:
@@ -10,19 +15,19 @@ In one sentence:
 03. **About BEM** We use the block__element--modifier syntax.
 04. **Common abbreviations** BEM is useful but it can bring loooong class names so we defined a list of abbreviations that we must use.
 05. **Questions:** Answer these and we will build your classname.
-    01. **Target language** 
+    01. **Target language**
     Is the class indicating a JavaScript dependency?
-    02. **Scope of use** 
+    02. **Scope of use**
     Is the class meant to be used across multiple sites?
-    03. **Style flexibility** 
+    03. **Style flexibility**
     Is the styling of your class exactly the same across all sites?
-    04. **SMACSS category** 
+    04. **SMACSS category**
     Base, Layout, Module, State or Theme?
-    05. **Pick a name** 
+    05. **Pick a name**
     Prefixes are ready, let's pick a name
-    06. **Quality assurance** 
+    06. **Quality assurance**
     Before we are done, let's review it one last time!
-    07. **Now what?** 
+    07. **Now what?**
     I chose a name but then?
 06. **Examples:** No doubt, few examples can help us here...
 07. **Conclusion:** The world keeps on turning.
@@ -33,7 +38,7 @@ In one sentence:
 
 **This document's purpose is to define the logic path that you must use to create any new class attribute value** (used inside the `class` attribute inside your HTML markup as well as inside `.your-selectors` in [S]CSS files).
 
-By defining and **respecting the following guidelines, we will increase the consistency and the quality** of our code. 
+By defining and **respecting the following guidelines, we will increase the consistency and the quality** of our code.
 **CSS is hard** and one of the common pitfall is using selector which are too tightly coupled with our markup...
 
 `.some-site #content h1.level1` does the job, but what an ugly job !
@@ -45,7 +50,7 @@ Once you are surrounded with selectors with a high specificity you will be const
 By **answering a couple of questions** and following instructions indicated for each answer, the scenario **will help you out by building the classname**.
 
 The generated classname is nice but you will still have to stop and think about where you should insert your selector in the [S]CSS...
-In which repository, in which folder, in which file, in which line. 
+In which repository, in which folder, in which file, in which line.
 
 **Please be wise[1]!**
 
@@ -65,13 +70,13 @@ Now, when you or another integrator get **confronted to an `!important` causing 
 
 Then, there are only 3 words in your head:
 
-> What 
-> The 
+> What
+> The
 > Fuck ?
 
 And here you do perceive the (mis)usage of `!important` as ridiculous and amateur[2].
 
-**Instead of using `!important`, consider adding an additional and conditional class** that will only be use in you special case scenario. 
+**Instead of using `!important`, consider adding an additional and conditional class** that will only be use in you special case scenario.
 
 Same principle applies to most scenario's you will meet.
 
@@ -100,7 +105,7 @@ It is a way to write longer classnames[1] instead of using nesting[2].
 
 You must **use BEM whenever it is possible** and the classname generator will help you out on this by creating the block part...
 
-1. **Longer classnames** are not simply longer (-), they tend to **reduce the naming collision** (+), decrease the specificity (+) and **describe explicitly the ownership** of related classnames/elements (+). 
+1. **Longer classnames** are not simply longer (-), they tend to **reduce the naming collision** (+), decrease the specificity (+) and **describe explicitly the ownership** of related classnames/elements (+).
 That is 3 pros and only 1 cons, so it is worthy!
 2. I love nesting! [What should I do ?](http://i.imgur.com/4KtmA4I.jpg)
 If you survived, read [why you should avoid nesting](http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css).
@@ -109,7 +114,7 @@ If you survived, read [why you should avoid nesting](http://thesassway.com/inter
 ### Syntax for BEM
 
 We chose the **most common syntax for BEM**.
-It looks like this: 
+It looks like this:
 **`.block-name__element-name--modifier-name`**
 
 The order is always the same (**from global to specific**) and only the `block` part is mandatory.
@@ -123,8 +128,8 @@ The `modifier` part is prefixed with **2 dash**: `--`, also optional, you will n
 ### Three distinct parts
 
 #### Block
-Quick reminder: the `block` is the root of your module... 
-It can have styles on its own (off course!). 
+Quick reminder: the `block` is the root of your module...
+It can have styles on its own (off course!).
 FYI, you could also combine it with a `modifier` directly without an `element`.
 
 **Important:**
@@ -132,8 +137,8 @@ The classname generator will only generate the block name.
 With this block name you can define elements that belong to this block as well as modifiers.
 
 #### Element
-An `element` is simply a part of a `block` (any descendent of the current block). 
-It is does not need to be a direct child, remember we want to remain flexible. 
+An `element` is simply a part of a `block` (any descendent of the current block).
+It is does not need to be a direct child, remember we want to remain flexible.
 
 Let's see an example...
 
@@ -152,7 +157,7 @@ The main purposes of BEM are:
 - to reduce the dependencies with the markup (example: `.widget-articles ul li` is bad[1])
 - to reduce specificity
 - to avoid names collision
- 
+
 The price to pay is longer classnames but we gain in simplicity and we reduce specificity.
 
 >You must learn to use multiple values in the class attribute as using multiple layers of styles... From widely used common styles to specific classnames.
@@ -160,7 +165,7 @@ The price to pay is longer classnames but we gain in simplicity and we reduce sp
 1. Specificity is 12, which is still low BUT the depth of applicability is to wide (all `li` inside any `ul` under `.widget-articles`) and it asks to the browser to parse every single `li` until it gets (eventually) rejected. Help out the browser, it has a lot of tasks on its shoulders!
 
 #### Modifier
-The modifier acts as a kind of state or version. It represents a variation of the current block/child of the block. While we could use it implicitly (example: `.widget-articles__entry--first`)... I read about using it with an additional convention which is including the modifier property and its value like so: `widget-articles__entry--position_first`. In that case the modifier has two parts divided by an underscore `_`. 
+The modifier acts as a kind of state or version. It represents a variation of the current block/child of the block. While we could use it implicitly (example: `.widget-articles__entry--first`)... I read about using it with an additional convention which is including the modifier property and its value like so: `widget-articles__entry--position_first`. In that case the modifier has two parts divided by an underscore `_`.
 So `position_first` (key_value).
 
 They may be boolean (for example, visible: true or false) or key-value pairs (size: large, medium, small). When you are using a non boolean value, then you should use `key` + `_` + `value` instead of `boolean-value`.
@@ -247,9 +252,9 @@ Instead, be wise and add an additional class value inside the attribute. Separat
 
 ### Q2. Scope of use
 #### Is the class meant to be used across multiple sites?
-**A common module** (shared across multiple sites) should be hosted inside the `www` repository. Even if the module concerns all the radio sites 
+**A common module** (shared across multiple sites) should be hosted inside the `www` repository. Even if the module concerns all the radio sites
 it **should be hosted inside `www`** and not inside the default radio site (`radio`). The only purpose of `www` is to share modules and ressources.
-If you are not certain about the fact that your module will be shared then, I would recommend to not share it in order to avoid confusion, **limit dependencies and reduce the number of shared modules**. 
+If you are not certain about the fact that your module will be shared then, I would recommend to not share it in order to avoid confusion, **limit dependencies and reduce the number of shared modules**.
 
 We prefer have a few clean/well made shared modules to plenty of shared modules made with misconception.
 
@@ -264,7 +269,7 @@ If later on the module needs to be converted in a common module, you will copy t
     <dd>Skip the next question little grasshopper.</dd>
 </dl>
 
-### Q3. Style flexibility 
+### Q3. Style flexibility
 ####Is the styling of your class exactly the same across all sites?
 
 You should skip this question if you answered "No..." to question 2.
@@ -275,7 +280,7 @@ Best example is the play button that is added over the bottom left corner of the
 
 In one word: consistance.
 
-This can be true for small parts of our UI but also for globally reusable utility classes that we created. We won't re-write code 
+This can be true for small parts of our UI but also for globally reusable utility classes that we created. We won't re-write code
 from frameworks that we used as it would be a waste of time and it would turn the update process into a nightmare.
 Another good example would be classnames used to define selectors of type `layout` like `rtbf-ad-imu` or `rtbf-l-grid`...
 
@@ -321,7 +326,7 @@ By definition the base selectors only use a single element name (and nothing mor
 2. The "strength" of your selector. [See how specificity is calculated...](http://specificity.keegan.st/)
 
 ##### Layout
-Layout rules[1] are helpers that we should rely on every time we are facing a recurring situation about the placement of elements. 
+Layout rules[1] are helpers that we should rely on every time we are facing a recurring situation about the placement of elements.
 About the way they are positioned, the box model properties they should adopt, etc. Common properties to expect in layout styles are `position`, `[min-/max-]width`, `[min-/max-]height`, `margin`, `padding`, `top`, `right`, `bottom`, `left`, `float`, `clear`, `border`, `display`, `box-sizing`, `flex`, `columns`...
 
 When you create a layout rule, you must only include properties that are related to the layout, **do not intertwine[2]** different aspects together **as you want to promote reusability** over specific implementation. For the same reason, avoid using magic numbers[3] which will require changes and will break easily (due to their fragile nature).
@@ -339,7 +344,7 @@ When you create a layout rule, you must only include properties that are related
 
 ##### Module
 The module rules are the styles **related to the distinct components of our site**, just like we have in cryo...
-Reusable pieces of a puzzle that you can duplicate. **This category will probably be the most used**, but think it through and **avoid considering that everything belongs to the module category**. 
+Reusable pieces of a puzzle that you can duplicate. **This category will probably be the most used**, but think it through and **avoid considering that everything belongs to the module category**.
 
 Let's refresh our mindset about the module category **as defined by SMACSS**.
 
@@ -368,7 +373,7 @@ This way, it is perfectly clear that there are 2 modules: a basic (main) module 
 
 This way, it is **explicit in the HTML markup!**
 In the generated **CSS code**, it will also be **simpler!**
-Why? Because **we will not use the `@extend` feature** provided by SASS which gets quickly ugly and nasty. 
+Why? Because **we will not use the `@extend` feature** provided by SASS which gets quickly ugly and nasty.
 
 > Simplicity is robust and ingenious.
 > Keep in mind that a SCSS code that looks clean and well structured can produce a bad code.
@@ -394,7 +399,7 @@ Never forget that **when you work on a submodule, you only affect the submodule*
 
 **Another scenario** is essential, **you should not have to undo something** in a submodule. If you need to cancel a property in a submodule maybe you need to move it out of the main module itself. **Try to always start abstract then add properties with modifiers** instead of canceling properties.
 
-Well that was a big piece, right? 
+Well that was a big piece, right?
 We're done with the theory for (sub)modules, here are the questions...
 
 <dl>
@@ -425,7 +430,7 @@ Without using a prefix we won't know for sure if the classname was thought out a
 
 ###### Some kind of ambiguous state, indeed.
 
-Does the state rules you are writing belong to an existing module? 
+Does the state rules you are writing belong to an existing module?
 Then maybe it is just a as a submodule and maybe we should just use a `--modifier`?
 
 Or does it exists on its own (globally, then)?
@@ -437,7 +442,7 @@ We don't have this kind of question for the other categories but the volatile na
 
 SMACSS website describes state as:
 
-> A state is something that augments and overrides all other styles. For example, an accordion section may be in a collapsed or expanded state. 
+> A state is something that augments and overrides all other styles. For example, an accordion section may be in a collapsed or expanded state.
 > A message may be in a success or error state.
 
 On the technical side, there are 3 natures of state rules:
@@ -447,7 +452,7 @@ On the technical side, there are 3 natures of state rules:
 
 ###### In practice
 
-What is certain is that [state category is stronger](http://i.imgur.com/rkQoozr.jpg) (via specificity or `!important`) than (sub)modules using it. 
+What is certain is that [state category is stronger](http://i.imgur.com/rkQoozr.jpg) (via specificity or `!important`) than (sub)modules using it.
 But when defined globally, it should only affect the specific properties shared by all components using it (and related by the state change's context).
 In other words, as usual we want to avoid having to cancel style properties, keep decorating with new style properties instead.
 
@@ -457,30 +462,30 @@ What is this debate about? I'm not sure I understand... Let's review a quick exa
 
 In this example, we are working on the carousel of games hosted on Ouftivi's homepage.
 
-For some reason, some entries of the carousel can have a disabled state... 
+For some reason, some entries of the carousel can have a disabled state...
 For example, the content could be announced as "available soon". Or the game could require the Adobe Flash and you may be viewing the page on a device running on iOS (which does not support Adobe Flash).
 
-In this case how would we build the classname? 
-Should we use the (existing) long prefixed classname by appending our `--own-modifier` to it? 
+In this case how would we build the classname?
+Should we use the (existing) long prefixed classname by appending our `--own-modifier` to it?
 Or a simple and global `.disabled` class?
 
-There no black or white answer here, it is all grey. 
-It is the usual situation when the answer is "it depends" and we come back to the [fine art of balance](http://i.imgur.com/7wQ3uJB.jpg) you need when claiming to be a professional integrator. 
+There no black or white answer here, it is all grey.
+It is the usual situation when the answer is "it depends" and we come back to the [fine art of balance](http://i.imgur.com/7wQ3uJB.jpg) you need when claiming to be a professional integrator.
 Generating a long classname would protect us but we will probably not reuse it elsewhere and also, JavaScript can become coupled with the module's internal and specific class names!
 `.www-m-carousel-games-is-not-available` is long, but the main issue is that this style could only be used when we work on carousel of games, using it on a carousel of "heroes" would feels wrong... Right?
-We could instead use a global shared classname `.is-unavailable`[1] and in case of further customization/needs, adding a second selector like so: 
-`.www-m-carousel-games .is-unavailable` 
-or 
+We could instead use a global shared classname `.is-unavailable`[1] and in case of further customization/needs, adding a second selector like so:
+`.www-m-carousel-games .is-unavailable`
+or
 `.www-m-carousel-games__item.is-unavailable`.
 
 I see nesting? Shouldn't we avoid using nesting?
-"It depends" ;-) You can use it if you use it wisely but if possible, prefer the second approach[2]. 
-Anyway, these kinds of practices should be only used when truly needed and not "by default". 
+"It depends" ;-) You can use it if you use it wisely but if possible, prefer the second approach[2].
+Anyway, these kinds of practices should be only used when truly needed and not "by default".
 Think ahead before you write code instead of writing CSS in rush mode. Invest some time in your CSS and it will pay off.
-Elegant and simple solutions are what smart developers focus on. 
+Elegant and simple solutions are what smart developers focus on.
 
 With either of the last 2 selectors, we get a [higher specificity](http://specificity.keegan.st/) (20 instead of 10). But it is respecting the cascade and promoting reusability!
-We want to globally apply basic styles with a light/delicate strength while adding specific styles and special cases for concise scenarios. 
+We want to globally apply basic styles with a light/delicate strength while adding specific styles and special cases for concise scenarios.
 In our example `.www-m-carousel-games .is-unavailable` would only add/overwrite style properties that should not be defined in the global/shared classname (properties proper to this specific scenario).
 
 <dl>
@@ -522,14 +527,14 @@ What are themes and why/when do we need them?
 
 > ...a theme defines colours and images that give your application or site its look and feel. Separating the theme out into its own set of styles allows for those styles to be easily redefined for alternate themes. (...) It could affect layout with different arrangements. It could also alter how states look.
 
-It is also the last category of rules as defined by SMACSS. 
+It is also the last category of rules as defined by SMACSS.
 In other words, it is the strongest category in specificity and the most restrictive in terms of depth of applicability.
 
 For the theme there are 2 possible strategies, you can:
 - Add a single class on a container and use nesting
 - Use multiple additional classes on specific elements
 
-We use themes on most of our websites to allow to overwrite styles in very specific scenarios like when there is a commercial takeover on the page. 
+We use themes on most of our websites to allow to overwrite styles in very specific scenarios like when there is a commercial takeover on the page.
 
 It is also used on the TV website to customize the colors of the links when you are surfing in the context of a particular channel.
 
@@ -602,7 +607,7 @@ Examine your class name you should a something like this:
 
 **`. [js-] [rtbf-/www-] (l-/m-/is-/theme-) (module-name-as-block) [__element] [--submodule-as-modifier] [__element]`**
 
-It looks scary but don't be afraid, stay focus on respecting the rules we agreed on. 
+It looks scary but don't be afraid, stay focus on respecting the rules we agreed on.
 `[]` is an optional group.
 `()` is a required group.
 
@@ -624,7 +629,7 @@ Is that classname already used? If so, in which circumstances?
 Creating a robust name for your CSS classes is hard but you need the save the CSS code...
 * Inside the correct line
   * Inside the correct section
-    * In the correct file 
+    * In the correct file
       * Hosted in the correct site
 
 You choose the location based on the fact that is the class is common or not.
@@ -683,10 +688,10 @@ It should only apply globally shared properties, nothing too specific!
 ## Conclusion
 
 The web never stops evolving and so does the technics used to make it.
-This guide could be updated in the future in order to adapt to newer 
+This guide could be updated in the future in order to adapt to newer
 perspectives of web development.
 
-**Caution:** while it is tempting to update this document and its scenarios 
-we should not do it without thinking about the consequences of the changes 
-we bring in. If necessary, we will have to refactor the existing code base 
+**Caution:** while it is tempting to update this document and its scenarios
+we should not do it without thinking about the consequences of the changes
+we bring in. If necessary, we will have to refactor the existing code base
 in order to keep it consistant and reliable!
