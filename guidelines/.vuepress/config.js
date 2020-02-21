@@ -14,25 +14,26 @@ module.exports = {
       { text: 'Auvio', link: 'https://www.rtbf.be/auvio/' }
     ],
     logo: '/assets/img/favicon-rtbf.png',
+    smoothScroll: true,
     sidebar: [
       {
-        title: 'A propos',
+        title: 'À propos',
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           'a-propos/',
-          'a-propos/comment'
-          'a-propos/impartialite'
-          'a-propos/privacy'
+          'a-propos/comment',
+          'a-propos/impartialite',
+          'a-propos/privacy',
           'a-propos/content'
         ]
       },
       {
-        title: 'Vignettes',
+        title: 'Guidelines',
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          'vignettes/'
+          'guidelines/'
         ]
       },
       {
@@ -41,7 +42,8 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           'old/',
-          'old/classname-generator'
+          'old/classname-generator',
+          'old/styleguide'
         ]
       }
     ]
