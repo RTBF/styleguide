@@ -2,7 +2,7 @@
 
 ## Environnement technique
 
-- Cette plateforme utilise ** [VuePress](https://vuepress.vuejs.org/) **
+- Cette plateforme utilise **[VuePress](https://vuepress.vuejs.org/)**
 
 ## Comment l'utiliser
 
