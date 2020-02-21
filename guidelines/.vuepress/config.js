@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Digital guidelines',
   description: 'Just playing around',
+  base: '/clients/rtbf/',
   head: [
     ['link', {
       rel: 'icon',

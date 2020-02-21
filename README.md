@@ -31,3 +31,10 @@ vuepress build
 ```
 
 Cela va générer ou mettre à jour le contenu du répertoire `.vuepress/dist` qui est l'application statique à déployer sur l'hébergement.
+
+## Configuration de l'URL de déploiement
+
+Base documentaire : https://vuepress.vuejs.org/config/#basic-config
+```
+vuepress build
+```
