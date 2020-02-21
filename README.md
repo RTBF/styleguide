@@ -2,12 +2,12 @@
 
 ## Environnement technique
 
-- Cette plateforme utilise *VuePress* https://vuepress.vuejs.org/
+- Cette plateforme utilise ** [VuePress](https://vuepress.vuejs.org/) **
 
 ## Comment l'utiliser
 
 1. Cloner localement le repository
-2. Suivre la procédure d'installation de [VuePress](https://vuepress.vuejs.org/guide/getting-started.html)
+2. Suivre la [procédure d'installation de VuePress](https://vuepress.vuejs.org/guide/getting-started.html)
 3. Apporter les adaptations prévues
 4. Mettre à jour le repository (git push)
 5. Déployer sur l'hébergement le contenu du répertoire `.vuepress/dist`
@@ -34,7 +34,4 @@ Cela va générer ou mettre à jour le contenu du répertoire `.vuepress/dist` q
 
 ## Configuration de l'URL de déploiement
 
-Base documentaire : https://vuepress.vuejs.org/config/#basic-config
-```
-vuepress build
-```
+Base documentaire sur le routing : https://vuepress.vuejs.org/config/#basic-config
