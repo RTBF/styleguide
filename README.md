@@ -1,5 +1,8 @@
 # Guide d'utilisation des différents éléments digitaux des portails de la RTBF
 
+## RTBF [S]CSS Codebase
+**[RTBF CSS Styleguide is still online.](https://github.com/RTBF/styleguide/tree/styleguide-2015)** 
+
 ## Environnement technique
 
 - Cette plateforme utilise **[VuePress](https://vuepress.vuejs.org/)**
